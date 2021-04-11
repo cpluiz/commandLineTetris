@@ -1,0 +1,16 @@
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.csprojAssemblyReference.cache
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.AssemblyInfoInputs.cache
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.AssemblyInfo.cs
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.csproj.CoreCompileInputs.cache
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.exe
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.deps.json
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.runtimeconfig.json
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.runtimeconfig.dev.json
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.dll
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\ref\Tetris.dll
+F:\Projetos de Jogos\CommandLineProjects\Tetris\bin\Debug\net5.0\Tetris.pdb
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.dll
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\ref\Tetris.dll
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.pdb
+F:\Projetos de Jogos\CommandLineProjects\Tetris\obj\Debug\net5.0\Tetris.genruntimeconfig.cache
