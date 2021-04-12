@@ -14,12 +14,18 @@ namespace Tetris {
         private int points = 0;
         const int basePoints = 10;
 
+        /// <summary>
+        /// Cria uma nova instância do jogo
+        /// </summary>
         public Game() {
             board = new Board();
             points = 0;
             Start();
         }
 
+        /// <summary>
+        /// Inicializa a partida, criando a Thread principal e instanciando as primeiras peças
+        /// </summary>
         void Start(){
             update = new Thread(new ThreadStart(Update));
             update.Priority = ThreadPriority.Normal;
@@ -29,6 +35,9 @@ namespace Tetris {
             waitHandle = new AutoResetEvent(false);
         }
 
+        /// <summary>
+        /// Loop principal do jogo
+        /// </summary>
         public void Update() { 
             try{
                 while(true){
@@ -59,6 +68,11 @@ namespace Tetris {
             }catch(Exception){}
         }
 
+        /// <summary>
+        /// Detecta interação com o teclado para movimentar e/ou rotacionar as peças
+        /// </summary>
+        // TODO - melhorar detecção para que ela não impeça a peça de se mover caso vários
+        // comandos tenham sido pressionados
         public void MoveBlock(){
             if(Console.KeyAvailable){
                 int nextPosX = currentBlock.PosX;

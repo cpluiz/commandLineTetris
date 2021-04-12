@@ -14,8 +14,9 @@ namespace Tetris
             game = new Game();
             Console.Clear();
             while(!game.GameOver){
-                
+                //Loop vazio enquanto o jogo está rodando
             }
+            //Situação de game over - permite reiniciar o jogo ou sair da aplicação
             while(!Console.KeyAvailable){
                 Console.SetCursorPosition(0, 20);
                 Console.ForegroundColor = ConsoleColor.White;

@@ -39,6 +39,11 @@ namespace Tetris {
                 for(int y = 0;y < height;y++)
                     playField[y * width + x] = (x == 0 || x == width - 1 || y == height - 1) ? WALL_SYMBOL : EMPTY_SPACE_SYMBOL;
         }
+
+        /// <summary>
+        /// Renderiza o tabuleiro na tela, incluindo as paredes e peças que já tenham alcançado
+        /// suas posições finais
+        /// </summary>
         public void DrawBoard() {
             Console.CursorVisible = false;
             //Console.Clear();
@@ -53,6 +58,10 @@ namespace Tetris {
             }
         }
 
+        /// <summary>
+        /// Renderiza o bloco atual na tela, levando em consideração sua posição e rotação atuais
+        /// </summary>
+        /// <param name="block">Tetromino/peça atual a ser renderizado</param>
         public void DrawBlock(Block block){
             if(block == null) return;
             for(int bx=0; bx < 4; bx++){
@@ -69,6 +78,10 @@ namespace Tetris {
             }
         }
 
+        /// <summary>
+        /// Renderiza ao lado do tabuleiro a forma do próximo bloco a ser utilizado pelo jogador
+        /// </summary>
+        /// <param name="width">Próximo tetromino/peça a ser utilizado</param>
         public void DrawNextBlock(Block block){
             Console.SetCursorPosition(this.width*2, 3);
             Console.Write("Next pice:");
@@ -82,12 +95,21 @@ namespace Tetris {
             }
         }
 
+        /// <summary>
+        /// Renderiza o placar atual na tela
+        /// </summary>
+        /// <param name="score">Pontuação atual do jogador</param>
         public void DrawScore(int score){
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(this.width*2, 0);
             Console.Write("Score: {0}", score.ToString());
         }
 
+        /// <summary>
+        /// Remove a forma do bloco atual do tabuleiro antes de avaliar se o próximo movimento
+        /// da peça é permitido
+        /// </summary>
+        /// <param name="block">Tetromino/bloco atual sendo controlado pelo jogador</param>
         public void ClearBlock(Block block){
             if(block == null) return;
             for(int bx=0; bx < 4; bx++){
@@ -104,6 +126,13 @@ namespace Tetris {
             }
         }
 
+        /// <summary>
+        /// Verifica se a próxima movimentação e/ou rotação da peça é permitida
+        /// </summary>
+        /// <param name="block">Tetromino/bloco atual sendo controlado pelo jogador</param>
+        /// <param name="nextX">Próxima coordenada X da peça dentro do tabuleiro do jogo</param>
+        /// <param name="nextY">Próxima coordenada Y da peça dentro do tabuleiro do jogo</param>
+        /// <returns>Retorna false em caso de colisão, e true caso a ação possa ser executada</returns>
         public bool ValidBlockLocation(Block block, int nextX, int nextY){
             for(int bx=0; bx < 4; bx++){
                 for(int by=0; by<4; by++){
@@ -127,6 +156,14 @@ namespace Tetris {
             return true;
         }
 
+        /// <summary>
+        /// Verifica se existe uma ou mais linhas completadas após a peça atual não poder
+        /// se movimentar além da posição atual;
+        /// </summary>
+        /// <param name="boardY">Coordenada Y do tabuleiro, de acordo com o canto superior esquerdo da última peça em uso</param>
+        /// <param name="checkedLines">Contagem de quantas linhas foram verificadas até o momento</param>
+        /// <param name="clearStreak">Contagem de quantas linhas estavam completas, para calcular bônus de pontuação</param>
+        /// <returns>Quantidade de linhas completadas para efetuar o calculo de pontuação com bônus por linhas extras concluídas</returns>
         public int CheckFullLine(int boardY, int checkedLines = 0, int clearStreak = 0){
             bool cleanedLine = false;
             for(int y = boardY+3; y >= boardY+checkedLines ;--y) {
@@ -149,6 +186,12 @@ namespace Tetris {
                 clearStreak = CheckFullLine(boardY, ++checkedLines, clearStreak);
             return clearStreak;
         }
+        /// <summary>
+        /// Remove uma linha do tabuleiro, movendo para baixo as linhas imediatamente superiores a ela
+        /// </summary>
+        /// <param name="line">Coordenada Y da linha a ser removida do tabuleiro</param>
+        /// <param name="checkedLines">Contagem de quantas linhas foram verificadas até o momento</param>
+        // TODO - movimentar todas as linhas para baixo, ao invés das linhas próximas ao último bloco/tetromino posicionado
         private void ClearLine(int line, int checkedLines){
             for(int y = line; y >= line-4+checkedLines; y--){
                 //Ignore board walls
